@@ -1,4 +1,3 @@
-
 const HOJA_ID = '1YYMbuESzxG9PrCGiVx1m8BqrVnFzItF46sw5v5KQqU0';
 const NOMBRE_HOJA = 'Hoja1';
 
@@ -9,6 +8,7 @@ function doPost(e) {
   sheet.appendRow([
     new Date(),
     data.nombre,
+    data.categoria, // ← CATEGORÍA incluida
     data.altura,
     data.peso,
     data.envergadura,
