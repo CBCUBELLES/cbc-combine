@@ -1,95 +1,102 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CBC Combine</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="logo_cbc.png" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-  <header class="app-header">
-    <img src="logo_cbc.png" alt="Logo CBC Combine" class="logo"/>
-    <h1>Combine CBC</h1>
-    <p>Programa de Millora Contínua</p>
-  </header>
 
-  <main class="container">
-    <form id="playerForm">
-      <details open>
-        <summary><h2>Datos del Jugador</h2></summary>
-        <input type="text" placeholder="Nombre completo" id="nombre" required />
-        <select id="categoria">
-          <option value="">Selecciona categoría</option>
-          <option>PRE-MINI</option>
-          <option>MINI</option>
-          <option>PRE-INFANTIL</option>
-          <option>INFANTIL</option>
-          <option>CADETE</option>
-          <option>JUNIOR</option>
-          <option>SUB-20</option>
-          <option>SENIOR</option>
-          <option>VETERANOS</option>
-          <option>PRE-MINI FEMENINO</option>
-          <option>MINI FEMENINO</option>
-          <option>PRE-INFANTIL FEMENINO</option>
-          <option>INFANTIL FEMENINO</option>
-          <option>CADETE FEMENINO</option>
-          <option>JUNIOR FEMENINO</option>
-          <option>SUB-20 FEMENINO</option>
-          <option>SENIOR FEMENINO</option>
-          <option>VETERANOS FEMENINO</option>
-        </select>
-        <input type="number" placeholder="Altura (cm)" id="altura" />
-        <input type="number" placeholder="Peso (kg)" id="peso" />
-        <input type="number" placeholder="Envergadura (cm)" id="envergadura" />
-        <input type="text" placeholder="Talla pie (ej. 42.5)" id="talla_pie" />
-        <input type="text" placeholder="Talla camiseta (S/M/L...)" id="talla_camiseta" />
-        <input type="text" placeholder="Talla pantalón (S/M/L...)" id="talla_pantalon" />
-      </details>
+:root {
+  --azul-oscuro: #003b87;
+  --azul-claro: #0072ce;
+  --rojo: #d32f2f;
+  --blanco: #ffffff;
+  --gris: #f5f5f5;
+}
 
-      <details>
-        <summary><h2>Pruebas Físicas</h2></summary>
-        <input type="number" placeholder="Salto vertical estático" id="salto_estatico" />
-        <input type="number" placeholder="Salto en carrera" id="salto_carrera" />
-        <input type="number" placeholder="Press banca (reps)" id="press_banca" />
-        <input type="text" placeholder="Desplazamiento lateral (s)" id="lateral" />
-        <input type="text" placeholder="Agilidad (s)" id="agilidad" />
-        <input type="text" placeholder="Sprint (s)" id="sprint" />
-      </details>
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: var(--gris);
+}
 
-      <details>
-        <summary><h2>Pruebas Técnicas</h2></summary>
-        <input type="number" placeholder="Tiro con bote (pts)" id="tiro_bote" />
-        <input type="number" placeholder="Tiro con crono (pts)" id="tiro_crono" />
-      </details>
+.app-header {
+  background-color: var(--azul-oscuro);
+  color: var(--blanco);
+  text-align: center;
+  padding: 20px 10px;
+}
 
-      <details>
-        <summary><h2>Estadísticas Partido</h2></summary>
-        <input type="text" placeholder="Puntos (ej. 4 de 6)" id="puntos" />
-        <input type="text" placeholder="Rebotes" id="rebotes" />
-        <input type="text" placeholder="Asistencias" id="asistencias" />
-        <input type="text" placeholder="Bloqueos" id="bloqueos" />
-        <input type="text" placeholder="Robos" id="robos" />
-        <input type="text" placeholder="Tapones" id="tapones" />
-      </details>
+.app-header .logo {
+  width: 100px;
+  height: auto;
+}
 
-      <button type="submit">Guardar Jugador</button>
-    </form>
+.container {
+  padding: 20px;
+  max-width: 700px;
+  margin: auto;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 
-    <section id="jugadoresContainer">
-      <h2>Jugadores Registrados</h2>
-      <ul id="jugadoresList"></ul>
-    </section>
+form {
+  display: grid;
+  gap: 12px;
+}
 
-    <section id="graficoJugador" class="grafico-section hidden">
-      <h2>Gráfico del Jugador</h2>
-      <canvas id="playerChart"></canvas>
-      <button onclick="cerrarGrafico()">Cerrar</button>
-    </section>
-  </main>
+input, select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
 
-  <script src="app.js"></script>
-</body>
-</html>
+button {
+  padding: 12px;
+  background-color: var(--azul-claro);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--azul-oscuro);
+}
+
+h2 {
+  color: var(--azul-oscuro);
+  margin-top: 20px;
+}
+
+#jugadoresList {
+  list-style: none;
+  padding: 0;
+}
+
+#jugadoresList li {
+  background-color: #e0e0e0;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  input, select {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+}
+
