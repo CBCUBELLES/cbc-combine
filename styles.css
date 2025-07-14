@@ -76,3 +76,52 @@ h2 {
   padding: 10px;
   border-radius: 8px;
 }
+/* Responsive design para móviles */
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  input, button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .app-header h1 {
+    font-size: 24px;
+  }
+
+  .app-header p {
+    font-size: 14px;
+  }
+
+  .logo {
+    width: 80px;
+  }
+}
+
+/* Secciones colapsables (details) */
+details {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+summary {
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+}
+
+details[open] {
+  background-color: #e8f0ff;
+  border-color: var(--azul-claro);
+}
